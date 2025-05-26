@@ -1,23 +1,9 @@
 COMPILER = cc
 FLAGS = -Wall -Werror -Wextra
 NAME = push_swap.a
-FILES = src/default/ft_nbr_to_ascii.c \
-		src/default/ft_print_char.c \
-		src/default/ft_print_hex.c \
-		src/default/ft_print_nbr.c \
-		src/default/ft_print_ptr.c \
-		src/default/ft_print_str.c \
-		src/default/ft_printf.c \
+FILES = src/default/ft_get_list
 
-FILES_BONUS = src/bonus/ft_check_width_bonus.c \
-			src/bonus/ft_print_hex_bonus.c \
-			src/bonus/ft_print_nbr_bonus.c \
-			src/bonus/ft_printf_bonus.c \
-			src/default/ft_nbr_to_ascii.c \
-			src/default/ft_print_char.c \
-			src/default/ft_print_hex.c \
-			src/default/ft_print_ptr.c \
-			src/default/ft_print_str.c \
+FILES_BONUS = 
 
 OBJS = $(FILES:.c=.o)
 OBJS_BONUS = $(FILES_BONUS:.c=.o)
@@ -42,4 +28,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re%     
+.PHONY: all bonus clean fclean re

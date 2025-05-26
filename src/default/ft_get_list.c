@@ -12,7 +12,34 @@
 
 #include "../../push_swap.h"
 
+int	ft_check_validity()
+{
+	while (lst)
+	{
+		if (lst->content >)
+		lst = lst->next;
+		counter++;
+	}
+	return;
+}
+
 void	ft_get_list(char *str)
 {
-	ft_split(str, ' ');
+	char	**nums;
+	int		i;
+
+	i = 0;
+	nums = ft_split(str, ' ');
+	while (nums[i])
+	{
+		nums[i] = ft_strtrim(nums[i], " ");
+		i++;
+	}
+	//Crea la primera lista con el numero de lementos contados por i, asignando el valor devuelto por atoi como el contenido
+	while ()
+	{
+		ft_lstnew();
+	}
+	ft_check_validity();
+	
 }
