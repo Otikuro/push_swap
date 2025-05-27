@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/26 13:43:59 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/27 13:57:30 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ void	ft_get_list(char *str)
 		nums[i] = ft_strtrim(nums[i], " ");
 		i++;
 	}
-	//Crea la primera lista con el numero de lementos contados por i, asignando el valor devuelto por atoi como el contenido
+	//Comprueba que se hayan creado como minimo dos elelmentos
+	if (i < 2)
+	{
+		write("Error");
+		return ();
+	}
+	//Crea la primera lista con el numero de elementos contados por i, asignando el valor devuelto por atoi como el contenido
 	while ()
 	{
 		ft_lstnew();
