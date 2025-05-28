@@ -14,4 +14,15 @@
 # define PUSH_SWAP_H
 # include "./libft/libft.h"
 
+typedef struct s_stack
+{
+	char			*value;
+	struct s_stack	*next;
+}	t_stack;
+
+void	ft_add_stack_back(t_stack **stack, t_stack *new);
+t_stack	*ft_get_last_node(t_stack *stack);
+int		ft_get_list(char *str);
+t_stack	*ft_new_stack(char *content);
+
 #endif

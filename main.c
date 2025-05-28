@@ -15,11 +15,9 @@
 
 int	main(int argc, char *argv[])
 {
-	printf()
-	if (argc < 1)
-		return (0);
-	else if (argc ==  2)
-		ft_get_list();
+	//printf("argc: %d", argc);
+	if (argc ==  2)
+		ft_get_list(argv[1]);
 	// else if (argc < 7)
 	// elss
 	return (0);

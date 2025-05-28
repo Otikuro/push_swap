@@ -11,31 +11,39 @@
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+#include <stdio.h>
 
-int	ft_check_validity()
+t_stack	*ft_create_list(char **nums)
 {
-	while (lst)
-	{
-		if (lst->content >)
-		lst = lst->next;
-		counter++;
-	}
-	return;
-}
-
-void	ft_get_list(char *str)
-{
-	char	**nums;
+	t_stack	*first_node;
+	t_stack	*new_node;
 	int		i;
 
 	i = 0;
-	nums = ft_split(str, ' ');
 	while (nums[i])
 	{
-		nums[i] = ft_strtrim(nums[i], " ");
-		i++;
+		new_node = ft_new_stack(nums[i]);
+		ft_add_stack_back(&first_node, new_node);
 	}
-	//Comprueba que se hayan creado como minimo dos elelmentos
+	return (first_node);
+}
+
+int	ft_get_list(char *str)
+{
+	t_stack	*node;
+	char	**nums;
+
+	nums = ft_split(str, ' ');
+	if (nums == NULL)
+		return (0);
+	node = ft_create_list(nums);
+	while (node)
+	{
+		printf("%s", node->value);
+		node = node->next;
+	}
+	return (1);
+/* 	//Comprueba que se hayan creado como minimo dos elelmentos
 	if (i < 2)
 	{
 		write("Error");
@@ -46,6 +54,6 @@ void	ft_get_list(char *str)
 	{
 		ft_lstnew();
 	}
-	ft_check_validity();
+	ft_check_validity(); */
 	
 }
