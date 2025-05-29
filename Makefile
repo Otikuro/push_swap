@@ -1,8 +1,11 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-NAME = push_swap.a
+NAME = push_swap
 FILES = main.c \
-		src/default/ft_get_list \
+		src/default/ft_add_stack_back.c \
+		src/default/ft_get_last_node.c \
+		src/default/ft_get_list.c \
+		src/default/ft_new_stack.c \
 
 OBJS = $(FILES:.c=.o)
 OBJS_BONUS = $(FILES_BONUS:.c=.o)
@@ -15,18 +18,16 @@ LIBFT = $(LIBFT_DIR)/libft.a
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	cp $(LIBFT) .
-	mv libft.a $(NAME)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+#	cp $(LIBFT) .
+#	mv libft.a $(NAME)
+#	$(AR) $(NAME) $(OBJS)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) all
 
 %.o: %.c
 	$(CC) $(CFLAGS) -I. -I$(LIBFT_DIR) -c $< -o $@
-
-#bonus: fclean $(OBJS_BONUS)
-#	$(AR) $(NAME) $(OBJS_BONUS)
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean
@@ -38,4 +39,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

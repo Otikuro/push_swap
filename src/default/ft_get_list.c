@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/27 13:57:30 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/29 11:33:00 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ int	ft_get_list(char *str)
 	nums = ft_split(str, ' ');
 	if (nums == NULL)
 		return (0);
-	node = ft_create_list(nums);
-	while (node)
-	{
-		printf("%s", node->value);
-		node = node->next;
-	}
+	// node = ft_create_list(nums);
+	// while (node)
+	// {
+	// 	printf("%s", node->value);
+	// 	node = node->next;
+	// }
 	return (1);
 /* 	//Comprueba que se hayan creado como minimo dos elelmentos
 	if (i < 2)
