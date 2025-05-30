@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/29 13:55:49 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:36:49 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_free_nums(char **nums)
 	free(nums);
 }
 
+//Check that the arguments contains only digits and/or a "+"" or "-"" at the start of the string
 int	ft_check_parsebility(char **nums)
 {
 	int	i;
@@ -38,10 +39,13 @@ int	ft_check_parsebility(char **nums)
 		j = 0;
 		while (nums[i][j])
 		{
-			if (!ft_isdigit(nums[i][j]))
+			if (!ft_isdigit(nums[i][j]) &&
+				!(j == 0 && (nums[i][j] == '-' || nums[i][j] == '+')))
 				return (0);
 			j++;
 		}
+		if (!j)
+			return (0);
 		i++;
 	}
 	return (i);
@@ -73,44 +77,46 @@ t_stack	*ft_create_stack(char **nums)
 
 int	ft_check_validity(t_stack *stack)
 {
+	t_stack	*actual_node;
+
 	while (stack)
 	{
-		printf("%d\n", stack->value);
+		actual_node = stack->next;
+		while (actual_node)
+		{
+			if (stack->value == actual_node->value)
+				return (0);
+			actual_node = actual_node->next;
+		}
 		stack = stack->next;
 	}
+	return (1);
 }
 
-int	ft_get_list(char *str)
+int	ft_get_list(int argc, char *argv[])
 {
 	t_stack	*stack;
 	char	**nums;
 	int		size;
 	int		validity;
 
-	nums = ft_split(str, ' ');
+	if (argc == 2)
+		nums = ft_split(argv[1], ' ');
+	else
+		nums = argv + 1;
 	if (nums == NULL)
 		return (0);
 	size = ft_check_parsebility(nums);
 	if (size < 2)
 		return (0);
 	stack = ft_create_stack(nums);
+	validity = ft_check_validity(stack);
+	if (!validity)
+		return (0);
 	while (stack)
 	{
 		printf("%d\n", stack->value);
 		stack = stack->next;
 	}
-	validity = ft_check_validity(stack);
 	return (1);
-/* 	//Comprueba que se hayan creado como minimo dos elelmentos
-	if (i < 2)
-	{
-		write("Error");
-		return ();
-	}
-	//Crea la primera lista con el numero de elementos contados por i, asignando el valor devuelto por atoi como el contenido
-	while ()
-	{
-		ft_lstnew();
-	}
-	ft_check_validity(); */
 }
