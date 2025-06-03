@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 09:06:00 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/29 13:46:15 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:28:40 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_new_stack(int value)
 	if (node == NULL)
 		return (NULL);
 	node->value = value;
+	node->prev = NULL;
 	node->next = NULL;
 	return (node);
 }

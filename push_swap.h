@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:29:25 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/30 13:01:55 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:28:21 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 
 typedef struct s_stack
 {
+	int				index;
 	int				value;
+	struct s_stack	*prev;
 	struct s_stack	*next;
 }	t_stack;
 
