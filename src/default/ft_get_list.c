@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_get_list.c                                      :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/05/30 15:59:29 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/04 20:49:10 by juamanri         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "../../push_swap.h"
 #include <stdio.h>
@@ -75,15 +75,19 @@ t_stack	*ft_create_stack(char **nums)
 	return (first_node);
 }
 
-int	ft_check_validity(t_stack *stack)
+#include <stdio.h>
+
+int	ft_check_validity(t_stack *stack, int size)
 {
 	t_stack	*actual_node;
 	int		order;
-	int		reverse_order;
 
+	order = 0;
 	while (stack)
 	{
 		actual_node = stack->next;
+		if (stack->next && (stack->value < stack->next->value))
+			order++;
 		while (actual_node)
 		{
 			if (stack->value == actual_node->value)
@@ -92,6 +96,13 @@ int	ft_check_validity(t_stack *stack)
 		}
 		stack = stack->next;
 	}
+	if (order == (size - 1))
+	{
+		printf("error (ordenado)");
+		return (0);
+	}
+	else if (order == 0)
+		printf("orden inverso");
 	return (1);
 }
 
@@ -112,12 +123,12 @@ int	ft_get_list(int argc, char *argv[])
 	if (size < 2)
 		return (0);
 	stack = ft_create_stack(nums);
-	validity = ft_check_validity(stack);
+	validity = ft_check_validity(stack, size);
 	if (!validity)
 		return (0);
 	//Llamar funciones que ordenen la lista
-	if (size < 6)
-		ft_selection_sort();
+/* 	if (size < 6)
+		ft_selection_sort(); */
 	while (stack)
 	{
 		printf("%d\n", stack->value);
