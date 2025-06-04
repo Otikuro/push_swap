@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/04 20:49:10 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/04 22:27:41 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -77,6 +77,8 @@ t_stack	*ft_create_stack(char **nums)
 
 #include <stdio.h>
 
+/*
+*/
 int	ft_check_validity(t_stack *stack, int size)
 {
 	t_stack	*actual_node;
@@ -102,7 +104,10 @@ int	ft_check_validity(t_stack *stack, int size)
 		return (0);
 	}
 	else if (order == 0)
+	{
 		printf("orden inverso");
+		return (2);
+	}
 	return (1);
 }
 
@@ -126,9 +131,7 @@ int	ft_get_list(int argc, char *argv[])
 	validity = ft_check_validity(stack, size);
 	if (!validity)
 		return (0);
-	//Llamar funciones que ordenen la lista
-/* 	if (size < 6)
-		ft_selection_sort(); */
+	ft_select_algorithm(stack, size, validity);
 	while (stack)
 	{
 		printf("%d\n", stack->value);

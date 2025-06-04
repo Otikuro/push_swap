@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 10:29:25 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/03 12:28:21 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/04 22:28:40 by juamanri         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -26,5 +26,8 @@ void	ft_add_stack_back(t_stack **stack, t_stack *new);
 t_stack	*ft_get_last_node(t_stack *stack);
 int		ft_get_list(int argc, char *argv[]);
 t_stack	*ft_new_stack(int content);
+
+//sort
+void	ft_select_algorithm(t_stack *stack, int size, int validity);
 
 #endif
