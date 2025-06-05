@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_list.c                                      :+:      :+:    :+:   */
+/*   ft_get_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/04 22:27:41 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/05 12:30:48 by juamanri         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "../../push_swap.h"
 #include <stdio.h>
@@ -105,13 +105,26 @@ int	ft_check_validity(t_stack *stack, int size)
 	}
 	else if (order == 0)
 	{
-		printf("orden inverso");
+		printf("orden inverso\n");
 		return (2);
 	}
 	return (1);
 }
 
-int	ft_get_list(int argc, char *argv[])
+void	ft_print_stack(t_stack *stack)
+{
+	t_stack	*first_node;
+
+	first_node = ft_get_first_node(stack);
+	//printf("primer nodo: %d\n", first_node->value);
+	while (first_node)
+	{
+		printf("%d ", first_node->value);
+		first_node = first_node->next;
+	}
+}
+
+int	ft_get_stack(int argc, char *argv[])
 {
 	t_stack	*stack;
 	char	**nums;
@@ -131,11 +144,11 @@ int	ft_get_list(int argc, char *argv[])
 	validity = ft_check_validity(stack, size);
 	if (!validity)
 		return (0);
-	ft_select_algorithm(stack, size, validity);
-	while (stack)
-	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
-	}
+
+	ft_print_stack(stack);
+	printf("\n----------\n");
+	ft_select_algorithm(&stack, size, validity);
+	ft_print_stack(stack);
+
 	return (1);
 }

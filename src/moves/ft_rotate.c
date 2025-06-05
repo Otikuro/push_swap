@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_algorithm.c                              :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/04 22:21:10 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/05 12:30:30 by juamanri         ###   ########.fr       */
+/*   Created: 2025/06/04 19:11:47 by juamanri          #+#    #+#             */
+/*   Updated: 2025/06/05 12:27:57 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,27 @@
 
 #include <stdio.h>
 
-void	ft_select_algorithm(t_stack **stack, int size, int validity)
+void	ft_rotate(t_stack **stack, char c)
 {
-	if (validity == 2)
-		ft_inverse_sort(stack, size);
-	// else if (size == 3)
-	// 	ft_sort_three_elements(stack);
-	// else if (size == 4)
-	// 	ft_sort_four_elements(stack);
-	// else if (size == 5)
-	// 	ft_sort_five_elements(stack);
-	// else
-	// 	algoritmo principal
+	t_stack *first;
+	t_stack *second;
+	t_stack *last;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+
+	first = *stack;
+	second = first->next;
+	last = ft_get_last_node(first);
+		
+	// Desconectar el primero
+	second->prev = NULL;
+	first->next = NULL;
+	// Conectar al final
+	last->next = first;
+	first->prev = last;
+	// Actualizar head
+	*stack = second;
+
+	printf("rotate %c\n", c);
 }

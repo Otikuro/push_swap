@@ -3,9 +3,14 @@ CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 FILES = main.c \
 		src/default/ft_add_stack_back.c \
+		src/default/ft_get_first_node.c \
 		src/default/ft_get_last_node.c \
-		src/default/ft_get_list.c \
+		src/default/ft_get_stack.c \
 		src/default/ft_new_stack.c \
+		src/moves/ft_rotate.c \
+		src/sort/ft_inverse_sort.c \
+		src/sort/ft_select_algorithm.c \
+		src/sort/ft_sort_three_elements.c \
 
 OBJS = $(FILES:.c=.o)
 OBJS_BONUS = $(FILES_BONUS:.c=.o)
