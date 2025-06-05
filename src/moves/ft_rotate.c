@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 19:11:47 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/05 12:27:57 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/05 12:37:49 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	ft_rotate(t_stack **stack, char c)
 	// Actualizar head
 	*stack = second;
 
-	printf("rotate %c\n", c);
+	printf("r%c\n", c);
 }

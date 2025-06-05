@@ -6,7 +6,7 @@
 /*   By: juamanri <juamanri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 13:42:48 by juamanri          #+#    #+#             */
-/*   Updated: 2025/06/05 12:30:48 by juamanri         ###   ########.fr       */
+/*   Updated: 2025/06/05 12:38:40 by juamanri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	ft_print_stack(t_stack *stack)
 	t_stack	*first_node;
 
 	first_node = ft_get_first_node(stack);
-	//printf("primer nodo: %d\n", first_node->value);
 	while (first_node)
 	{
 		printf("%d ", first_node->value);
